@@ -74,11 +74,11 @@ namespace wpf_adatbazis
             OpenConn();
             string sql = "UPDATE dolgozok SET nev=@name, nem=@gender, kor=@age, fizetes=@salary WHERE id=@id";
             MySqlCommand command = new MySqlCommand(sql, connection);
+            command.Parameters.AddWithValue("@id", employee.Id);
             command.Parameters.AddWithValue("@name", employee.Name);
             command.Parameters.AddWithValue("@gender", employee.Gender);
             command.Parameters.AddWithValue("@age", employee.Age);
             command.Parameters.AddWithValue("@salary", employee.Salary);
-            command.Parameters.AddWithValue("@id", employee.Id);
             int affectedRows = command.ExecuteNonQuery();
             CloseConn();
             return affectedRows == 1;

@@ -9,6 +9,7 @@ namespace wpf_adatbazis
     {
         EmployeeService service = new EmployeeService();
         EmployeeWindow employeeWindow;
+        Employee selectedEmployee = new Employee();
         public MainWindow()
         {
             InitializeComponent();
@@ -29,11 +30,15 @@ namespace wpf_adatbazis
 
         private void Update_Click(object sender, RoutedEventArgs e)
         {
-            employeeWindow = new EmployeeWindow();
-            employeeWindow.update.Visibility = Visibility.Visible;
-            employeeWindow.submit.Visibility = Visibility.Collapsed;
-            employeeWindow.ShowDialog();
-            Read();
+            selectedEmployee = employeeTable.SelectedItem! as Employee;
+            if (selectedEmployee != null)
+            {
+                employeeWindow = new EmployeeWindow(selectedEmployee);
+                employeeWindow.ShowDialog();
+                Read();
+            }
+            else { MessageBox.Show("Válasszon egy dolgozót!"); return; }
+
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)

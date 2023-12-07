@@ -12,22 +12,22 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <StackPanel>
-            <Label Content="Név:"/>
-            <Label Content="Kor:"/>
-            <Label Content="Nem:"/>
-            <Label Content="Fizetés:"/>
+        <StackPanel Orientation="Vertical">
+            <Label Content="Név:" Margin="0,0,0,0"/>
+            <Label Content="Kor:" Margin="0,0,0,0"/>
+            <Label Content="Nem:" Margin="0,7,0,0"/>
+            <Label Content="Fizetés:" Margin="0,5,0,0"/>
         </StackPanel>
         <StackPanel>
-            <TextBox x:Name="nameTextBox" Text="name" Width="120"/>
-        <TextBox x:Name="ageTextBox" Text="age" Width="120"/>
-        <ComboBox x:Name="genderComboBox" Width="120">
-            <ComboBoxItem Name="Male" Content="Male"></ComboBoxItem>
-            <ComboBoxItem Name="Female" Content="Female"></ComboBoxItem>
+            <TextBox x:Name="nameTextBox" Text="name" Width="120" Margin="0,5,0,0"/>
+            <TextBox x:Name="ageTextBox" Text="age" Width="120" Margin="0,10,0,0"/>
+            <ComboBox x:Name="genderComboBox" Width="120" Margin="0,10,0,0">
+                <ComboBoxItem Name="Male" Content="Male" Margin="0,10,0,0"></ComboBoxItem>
+                <ComboBoxItem Name="Female" Content="Female" Margin="0,10,0,0"></ComboBoxItem>
         </ComboBox>
-        <TextBox x:Name="salaryTextBox" Text="Salary" Width="120"/>
-            <Button x:Name="submit" Content="Create employee" Click="submit_Click" Width="120"></Button>
-            <Button x:Name="update" Content="Update" Click="Update_Click" Visibility="Collapsed" Width="120"></Button>
+            <TextBox x:Name="salaryTextBox" Text="Salary" Width="120" Margin="0,10,0,0"/>
+            <Button x:Name="submit" Content="Create employee" Click="submit_Click" Width="120" Margin="0,10,0,0"></Button>
+            <Button x:Name="update" Content="Update" Click="Update_Click" Visibility="Collapsed" Margin="0,10,0,0" Width="120"></Button>
     </StackPanel>
     </Grid>
 </Window>

@@ -6,12 +6,25 @@ namespace wpf_adatbazis
     /// </summary>
     public partial class EmployeeWindow : Window
     {
-        Employee employee = new Employee();
+        Employee employee;
         EmployeeService service;
         public EmployeeWindow()
         {
             InitializeComponent();
             service = new EmployeeService();
+            employee = new Employee();
+        }
+        public EmployeeWindow(Employee selectedEmployee)
+        {
+            InitializeComponent();
+            service = new EmployeeService();
+            nameTextBox.Text = selectedEmployee.Name;
+            ageTextBox.Text = selectedEmployee.Age.ToString();
+            salaryTextBox.Text = selectedEmployee.Salary.ToString();
+            genderComboBox.Text = selectedEmployee.Gender;
+            update.Visibility = Visibility.Visible;
+            submit.Visibility = Visibility.Collapsed;
+            this.employee = selectedEmployee;
         }
 
         public bool validateEmp(Employee employee)
@@ -25,6 +38,7 @@ namespace wpf_adatbazis
 
         private void submit_Click(object sender, RoutedEventArgs e)
         {
+            employee.Id = 0;
             employee.Name = nameTextBox.Text;
             employee.Salary = int.Parse(salaryTextBox.Text);
             employee.Gender = genderComboBox.Text;
@@ -44,7 +58,20 @@ namespace wpf_adatbazis
 
         private void Update_Click(object sender, RoutedEventArgs e)
         {
-
+            employee.Name = nameTextBox.Text;
+            employee.Salary = int.Parse(salaryTextBox.Text);
+            employee.Gender = genderComboBox.Text;
+            employee.Age = int.Parse(ageTextBox.Text);
+            if (validateEmp(employee))
+            {
+                if (service.Update(employee))
+                {
+                    MessageBox.Show("Sikeres volt az update!");
+                    return;
+                }
+                else { MessageBox.Show("Hiba történt az update során! 21"); return; }
+            }
+            MessageBox.Show("Hiba történt az update során 11");
         }
     }
 }
