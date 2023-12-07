@@ -1,0 +1,33 @@
+﻿<Window x:Class="wpf_adatbazis.EmployeeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:wpf_adatbazis"
+        mc:Ignorable="d"
+        Title="employeeWindow" Height="450" Width="800">
+    <Grid>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+            <Label Content="Név:"/>
+            <Label Content="Kor:"/>
+            <Label Content="Nem:"/>
+            <Label Content="Fizetés:"/>
+        </StackPanel>
+        <StackPanel>
+            <TextBox x:Name="nameTextBox" Text="name" Width="120"/>
+        <TextBox x:Name="ageTextBox" Text="age" Width="120"/>
+        <ComboBox x:Name="genderComboBox" Width="120">
+            <ComboBoxItem Name="Male" Content="Male"></ComboBoxItem>
+            <ComboBoxItem Name="Female" Content="Female"></ComboBoxItem>
+        </ComboBox>
+        <TextBox x:Name="salaryTextBox" Text="Salary" Width="120"/>
+            <Button x:Name="submit" Content="Create employee" Click="submit_Click" Width="120"></Button>
+            <Button x:Name="update" Content="Update" Click="Update_Click" Visibility="Collapsed" Width="120"></Button>
+    </StackPanel>
+    </Grid>
+</Window>
